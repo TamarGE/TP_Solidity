@@ -32,8 +32,14 @@ function apellido() public view returns (string memory){
 //nombre_completo() devuelve el nombre y el apellido del estudiante como string.
  
 function nombre_completo() public view returns (string memory){
-        return string.concat(_nombre,_apellido);
+        return string(bytes.concat(bytes(_nombre)," ",bytes(_apellido)));
 }
+/*contract StringConcatation{
+    function AppendString(string memory _nombre, string memory _apellido) public pure returns (string memory) {
+        return string(abi.  encodePacked(_nombre," ",_apellido));
+    }
+}*/
+
  
 //curso() devuelve el curso del alumno como string.
 function curso() public view returns (string memory){
